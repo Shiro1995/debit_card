@@ -1,5 +1,4 @@
-import {StatusBar} from 'native-base';
-import {Platform} from 'react-native';
+import {Platform, StatusBar} from 'react-native';
 import {
   defaultOptions,
   hideHeaderOptions,
@@ -83,5 +82,3 @@ export const MENU_LIST = [
   },
 ];
 
-export const marginTop =
-  Platform.OS === 'android' ? StatusBar.currentHeight : 0;

@@ -17,7 +17,7 @@ import CardItem from '../../component/CardItem';
 import styles from './styles';
 
 const DebitCardScreen = ({onNavigate, isLimit, setIsLimit}) => {
-  const marginTopList = {marginTop: isLimit ? 0 : -30}
+  const marginTopList = {marginTop: isLimit ? 0 : -30};
 
   const MenuItem = ({onSwitch, item}) => {
     return (

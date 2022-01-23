@@ -1,6 +1,7 @@
 const colors = Object.freeze({
     greenAccent: '#01d167',
     greenAccent10: 'rgba(1, 209, 103, 0.1)',
+    greenAccent7: 'rgba(1, 209, 103, 0.07)',
     white: "#FFFFFF",
     black: "#222222",
     background: "#0C365A",
