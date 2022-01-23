@@ -14,21 +14,15 @@ const Stack = createNativeStackNavigator();
 const screenMapping = Object.freeze({
   [SCREEN_NAME.CREDIT_CARD_SCREEN]: {
     component: DebitCardScreen,
-    options: {
-      ...hideHeaderOptions,
-    },
+    options: hideHeaderOptions,
   },
   [SCREEN_NAME.SPENDING_LIMIT_SCREEN]: {
     component: SpendingLimitScreen,
-    options: {
-      ...defaultOptions,
-    },
+    options: hideHeaderOptions,
   },
   [SCREEN_NAME.TAB_VIEW_SCREEN]: {
     component: TabView,
-    options: {
-      ...hideHeaderOptions,
-    },
+    options: hideHeaderOptions,
   },
 });
 

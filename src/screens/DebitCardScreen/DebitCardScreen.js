@@ -17,11 +17,9 @@ import CardItem from '../../component/CardItem';
 import styles from './styles';
 
 const DebitCardScreen = ({onNavigate, isLimit, setIsLimit}) => {
-  const MenuItem = ({
-    onSwitch,
-    setOnSwitch,
-    item,
-  }) => {
+  const marginTopList = {marginTop: isLimit ? 0 : -30}
+
+  const MenuItem = ({onSwitch, item}) => {
     return (
       <TouchableOpacity style={styles.rowItem} disabled={item.isSwitch}>
         <View style={styles.leftRow}>
@@ -38,7 +36,7 @@ const DebitCardScreen = ({onNavigate, isLimit, setIsLimit}) => {
             thumbColor={colors.white}
             value={item.id === 2 && onSwitch}
             onChange={() => {
-              item.id === 2 && setOnSwitch(!onSwitch);
+              item.id === 2 && onNavigate(onSwitch);
             }}
           />
         )}
@@ -64,37 +62,46 @@ const DebitCardScreen = ({onNavigate, isLimit, setIsLimit}) => {
         </View>
         <SafeAreaView style={styles.mainContent}>
           <View style={styles.scrollContent}>
-            <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false} >
+            <ScrollView
+              style={styles.scrollView}
+              showsVerticalScrollIndicator={false}>
               <View style={styles.cardStyle}>
                 <CardItem isShow={true} />
               </View>
               <View style={styles.contentView}>
-                <View style={styles.cardLimitContainer}>
-                  <View style={styles.limitTopRow}>
-                    <Text style={styles.limitTitle}>
-                      {CONTENT.DebitSpendLimit}
-                    </Text>
-                    <View style={styles.rightRow}>
-                      <Text style={styles.currentMoney}>{CONTENT.$}345</Text>
-                      <Text style={styles.limitMoney}>
-                        {'\t'}|{'\t'}5,000
-                      </Text>
+                <View style={styles.listView}>
+                  {isLimit && (
+                    <View style={styles.cardLimitContainer}>
+                      <View style={styles.limitTopRow}>
+                        <Text style={styles.limitTitle}>
+                          {CONTENT.DebitSpendLimit}
+                        </Text>
+                        <View style={styles.rightRow}>
+                          <Text style={styles.currentMoney}>
+                            {CONTENT.$}345
+                          </Text>
+                          <Text style={styles.limitMoney}>
+                            {'\t'}|{'\t'}5,000
+                          </Text>
+                        </View>
+                      </View>
+                      <View style={styles.progressBar}>
+                        <View style={styles.progress}></View>
+                      </View>
                     </View>
-                  </View>
-                  <View style={styles.progressBar}>
-                    <View style={styles.progress}></View>
-                  </View>
-                  <View style={styles.menuContent}>
-                    {MENU_LIST.map(item => {
-                      return (
-                        <MenuItem
-                          item={item}
-                          onSwitch={isLimit}
-                          setOnSwitch={setIsLimit}
-                        />
-                      );
-                    })}
-                  </View>
+                  )}
+                </View>
+                <View style={[styles.menuContent, marginTopList]}>
+                  {MENU_LIST.map(item => {
+                    return (
+                      <MenuItem
+                        key={item.id}
+                        item={item}
+                        onSwitch={isLimit}
+                        setOnSwitch={setIsLimit}
+                      />
+                    );
+                  })}
                 </View>
               </View>
             </ScrollView>

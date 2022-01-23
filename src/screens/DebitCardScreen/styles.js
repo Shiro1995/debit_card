@@ -1,10 +1,10 @@
-import {Platform, StatusBar, StyleSheet} from 'react-native';
+import {StyleSheet} from 'react-native';
 import {Dimensions} from 'react-native';
+import marginTop from '../../common/constant'
 
 import {colors, fonts} from '../../common/theme';
 
 const width = Dimensions.get('window').width;
-const marginTop = Platform.OS === 'android' ? StatusBar.currentHeight : 0;
 
 const styles = StyleSheet.create({
   safeArea: {
@@ -84,9 +84,11 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 24,
     borderTopLeftRadius: 24,
   },
+  listView: {
+    paddingTop: 176,
+  },
   cardLimitContainer: {
     flex: 1,
-    paddingTop: 176,
   },
   limitTopRow: {
     flexDirection: 'row',

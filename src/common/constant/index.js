@@ -1,3 +1,5 @@
+import {StatusBar} from 'native-base';
+import {Platform} from 'react-native';
 import {
   defaultOptions,
   hideHeaderOptions,
@@ -5,7 +7,7 @@ import {
 import DebitCard from '../../screens/DebitCardScreen';
 import Empty from '../../screens/EmptyScreen';
 import assets from '../theme/assets.js';
-import { CONTENT } from './string.js';
+import {CONTENT} from './string.js';
 
 export const TAB_NAME = {
   home: {
@@ -79,4 +81,7 @@ export const MENU_LIST = [
     isSwitch: false,
     icon: assets.deactivate,
   },
-]
+];
+
+export const marginTop =
+  Platform.OS === 'android' ? StatusBar.currentHeight : 0;

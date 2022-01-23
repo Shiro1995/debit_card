@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useCallback, useState} from 'react';
 import {SPENDING_LIMIT_SCREEN} from '../../navigation/screenName';
 
 import DebitCardScreen from './DebitCardScreen';
@@ -6,9 +6,12 @@ import DebitCardScreen from './DebitCardScreen';
 const DebitCard = ({navigation}) => {
   const [isLimit, setIsLimit] = useState(false);
 
-  const onNavigate = () => {
-    navigation.navigate(SPENDING_LIMIT_SCREEN);
-  };
+  const onNavigate = useCallback(onSwitch => {
+    if (!onSwitch) {
+      navigation.navigate(SPENDING_LIMIT_SCREEN);
+    }
+    setIsLimit(!onSwitch);
+  },[]);
 
   return (
     <DebitCardScreen
