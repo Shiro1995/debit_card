@@ -4,10 +4,6 @@ import {Image, Text, View} from 'react-native';
 
 import {assets} from '../../common/theme';
 import {MAIN_TABS, TAB_NAME} from '../../common/constant';
-import {
-  defaultOptions,
-  hideHeaderOptions,
-} from '../../navigation/navigationOptions';
 import Pressable from 'react-native/Libraries/Components/Pressable/Pressable';
 import styles from './styles';
 

@@ -2,32 +2,34 @@ import {
   defaultOptions,
   hideHeaderOptions,
 } from '../../navigation/navigationOptions.js';
-import DebitCard from '../../screens/DebitCardScreen/index.js';
-import Empty from '../../screens/EmptyScreen/index.js';
+import DebitCard from '../../screens/DebitCardScreen';
+import Empty from '../../screens/EmptyScreen';
+import assets from '../theme/assets.js';
+import { CONTENT } from './string.js';
 
 export const TAB_NAME = {
   home: {
-    name: 'Home',
+    name: CONTENT.Home,
     component: Empty,
     options: hideHeaderOptions,
   },
   card: {
-    name: 'Debit Card',
+    name: CONTENT.DebitCard,
     component: DebitCard,
     options: hideHeaderOptions,
   },
   payment: {
-    name: 'Payment',
+    name: CONTENT.Payment,
     component: Empty,
     options: hideHeaderOptions,
   },
   credit: {
-    name: 'Credit',
+    name: CONTENT.Credit,
     component: Empty,
     options: hideHeaderOptions,
   },
   profile: {
-    name: 'Profile',
+    name: CONTENT.Profile,
     component: Empty,
     options: hideHeaderOptions,
   },
@@ -41,25 +43,40 @@ export const MAIN_TABS = [
   TAB_NAME.profile,
 ];
 
-export const CONTENT = {
-  DebitCard: 'Debit Card',
-  AvailableBalance: 'Available Balance',
-  S$: 'S$',
-  HideCardNumber: 'Hide card number',
-  Thru: 'Thru',
-  CVV: 'CVV',
-  TopUp: 'Top-up account',
-  WeeklySpendingLimit: 'Weekly spending limit',
-  FreezeCard: 'Free card',
-  GetANewCard: 'Get a new card',
-  DeActivatedCards: 'DeActivated cards',
-  SpendingLimit: 'Spending limit',
-  SetAWeekly: 'Set a weekly debit card spending limit',
-  HereWeeklyMeans: 'Here weekly means the last 7 days not the calendar week',
-  Save: 'Save',
-  Home: 'Home',
-  DebitCard: 'Debit card',
-  Payment: 'Payment',
-  Credit: 'Credit',
-  Profile: 'Profile',
-}
+export const MENU_LIST = [
+  {
+    id: 1,
+    title: CONTENT.TopUp,
+    description: CONTENT.DepositMoney,
+    isSwitch: false,
+    icon: assets.topUp,
+  },
+  {
+    id: 2,
+    title: CONTENT.WeeklySpendingLimit,
+    description: CONTENT.YourWeekly,
+    isSwitch: true,
+    icon: assets.gaugeFilled,
+  },
+  {
+    id: 3,
+    title: CONTENT.FreezeCard,
+    description: CONTENT.YourDebit,
+    isSwitch: true,
+    icon: assets.freezeCard,
+  },
+  {
+    id: 4,
+    title: CONTENT.GetANewCard,
+    description: CONTENT.ThisDeactivates,
+    isSwitch: false,
+    icon: assets.newCard,
+  },
+  {
+    id: 5,
+    title: CONTENT.DeActivatedCards,
+    description: CONTENT.YourPreviously,
+    isSwitch: false,
+    icon: assets.deactivate,
+  },
+]
