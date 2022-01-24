@@ -53,7 +53,7 @@ https://miragejs.com/quickstarts/react-native/development/
 
 ## Structure
 
-This is a simple project, so I separate every single folder in concordance with its feature. Basically, it will have UI and logic follow redux-state management.
+This is a simple project, so i divide every folder in concordance with its feature. Basically, it will have the UI and logic following the redux state mangement
 
 ## Current dependencies added at *package.json*:
 
