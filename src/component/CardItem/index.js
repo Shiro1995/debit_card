@@ -25,7 +25,7 @@ const CardItem = ({cardInfo}) => {
           }}>
           <View style={styles.btnContent}>
             <Image
-              source={isShow ? assets.eyeShow : assets.eyeHide}
+              source={isShow ? assets.eyeHide : assets.eyeShow}
               style={styles.showHideIcon}
             />
             <Text style={styles.hideBtnTitle}>
