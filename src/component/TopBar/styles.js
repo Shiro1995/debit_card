@@ -11,7 +11,6 @@ const styles = StyleSheet.create({
   },
   backBtn: {
     padding: 5,
-    // backgroundColor: colors.white,
   },
   backArrow: {
     height: 18,
