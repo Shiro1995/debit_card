@@ -82,3 +82,10 @@ export const MENU_LIST = [
   },
 ];
 
+export const formatNumber = amount => {
+  const number = Number(amount)
+    .toFixed(1)
+    .replace(/\d(?=(\d{3})+\.)/g, '$&,');
+  const stringNum = String(number);
+  return stringNum.slice(0, stringNum.length - 2);
+};

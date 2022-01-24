@@ -5,10 +5,10 @@ const colors = Object.freeze({
     white: "#FFFFFF",
     black: "#222222",
     background: "#0C365A",
-    accent2: "#e5faf0",
     blue: "#25345F",
     grey: "#22222266",
     greyAccent: '#22222233',
+    lightGrey: '#EEEEEE',
 });
 
 export default colors;

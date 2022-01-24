@@ -9,24 +9,33 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import {MENU_LIST} from '../../common/constant';
+import {formatNumber, MENU_LIST} from '../../common/constant';
 
 import {CONTENT} from '../../common/constant/string';
 import {assets, colors} from '../../common/theme';
 import CardItem from '../../component/CardItem';
 import styles from './styles';
 
-const DebitCardScreen = ({onNavigate, isLimit, setIsLimit}) => {
+const DebitCardScreen = ({onNavigate, isLimit, setIsLimit, limitMoney, cardInfo}) => {
   const marginTopList = {marginTop: isLimit ? 0 : -30};
 
   const MenuItem = ({onSwitch, item}) => {
+    const DescriptionText =
+      item.id === 2 ? (
+        <Text style={styles.itemDescription}>
+          {onSwitch ? item.description : CONTENT.YouHavent}
+          {onSwitch && formatNumber(limitMoney)}
+        </Text>
+      ) : (
+        <Text style={styles.itemDescription}>{item.description}</Text>
+      );
     return (
       <TouchableOpacity style={styles.rowItem} disabled={item.isSwitch}>
         <View style={styles.leftRow}>
           <Image source={item.icon} style={styles.rowIcon} />
           <View style={styles.rowContent}>
             <Text style={styles.itemTitle}>{item.title}</Text>
-            <Text style={styles.itemDescription}>{item.description}</Text>
+            {DescriptionText}
           </View>
         </View>
         {item.isSwitch && (
@@ -57,7 +66,7 @@ const DebitCardScreen = ({onNavigate, isLimit, setIsLimit}) => {
           </Text>
           <View style={styles.rowCurrency}>
             <Text style={styles.unit}>{CONTENT.S$}</Text>
-            <Text style={styles.currency}>3,000</Text>
+            <Text style={styles.currency}>{cardInfo.balance_amount && formatNumber(cardInfo.balance_amount)}</Text>
           </View>
         </View>
         <SafeAreaView style={styles.mainContent}>
@@ -66,7 +75,7 @@ const DebitCardScreen = ({onNavigate, isLimit, setIsLimit}) => {
               style={styles.scrollView}
               showsVerticalScrollIndicator={false}>
               <View style={styles.cardStyle}>
-                <CardItem isShow={true} />
+                <CardItem isShow={true} cardInfo={cardInfo} />
               </View>
               <View style={styles.contentView}>
                 <View style={styles.listView}>
@@ -78,10 +87,11 @@ const DebitCardScreen = ({onNavigate, isLimit, setIsLimit}) => {
                         </Text>
                         <View style={styles.rightRow}>
                           <Text style={styles.currentMoney}>
-                            {CONTENT.$}345
+                            {CONTENT.$}{cardInfo.amountSpent}
                           </Text>
                           <Text style={styles.limitMoney}>
-                            {'\t'}|{'\t'}5,000
+                            {'\t'}|{'\t'}
+                            {!!limitMoney && limitMoney}
                           </Text>
                         </View>
                       </View>

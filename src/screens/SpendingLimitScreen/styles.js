@@ -85,8 +85,16 @@ const styles = StyleSheet.create({
   btnSave: {
     marginBottom: 24,
     borderRadius: 30,
-    backgroundColor: colors.greenAccent,
     marginHorizontal: 27,
+    backgroundColor: colors.lightGrey,
+    shadowColor: colors.grey,
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 1,
+    shadowRadius: 30,
+    elevation: 5,
   },
   textSave: {
     paddingVertical: 17,

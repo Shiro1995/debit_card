@@ -2,7 +2,6 @@ import {Platform, StatusBar, StyleSheet} from 'react-native';
 import {Dimensions} from 'react-native';
 import {colors, fonts} from '../../common/theme';
 
-const width = Dimensions.get('window').width;
 
 const marginTop = Platform.OS === 'android' ? StatusBar.currentHeight : 0;
 

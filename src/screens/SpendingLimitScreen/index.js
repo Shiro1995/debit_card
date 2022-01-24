@@ -1,16 +1,37 @@
-import React, {useLayoutEffect} from 'react';
-import {backButtonOptions} from '../../navigation/navigationOptions';
+import React, {useEffect, useState} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
+import {onChangeLimitMoney} from '../../actions';
+
 import SpendingLimitScreen from './SpendingLimitScreen';
-import styles from './styles';
 
 const SpendingLimit = ({navigation}) => {
-  const style = styles.navigationBar;
+  const dispatch = useDispatch();
+  const listSelect = [5000, 10000, 20000];
+  const [moneySelected, setMoneySelected] = useState();
+  const limitMoney = useSelector(state => state.cardState.limitMoney);
 
   const goBack = () => {
     navigation.goBack();
   };
 
-  return <SpendingLimitScreen goBack={goBack} />;
+  useEffect(() => {
+    setMoneySelected(limitMoney);
+  }, []);
+
+  const changeLimitMoney = limitMoney => {
+    dispatch(onChangeLimitMoney({limitMoney}));
+    navigation.pop();
+  };
+
+  return (
+    <SpendingLimitScreen
+      goBack={goBack}
+      listSelect={listSelect}
+      moneySelected={moneySelected}
+      changeLimitMoney={changeLimitMoney}
+      setMoneySelected={setMoneySelected}
+    />
+  );
 };
 
 export default SpendingLimit;

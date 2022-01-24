@@ -5,7 +5,7 @@ import {CONTENT} from '../../common/constant/string';
 import {assets} from '../../common/theme';
 import styles from './styles';
 
-const CardItem = ({isShow}) => {
+const CardItem = ({isShow, cardInfo}) => {
   return (
     <View style={styles.container}>
       <View style={styles.hideTopRow}>
@@ -24,13 +24,13 @@ const CardItem = ({isShow}) => {
       <View style={styles.cardContainer}>
         <View style={styles.cardContent}>
           <Image style={styles.aspireLogo} source={assets.aspireLogoWithText} />
-          <Text style={styles.cardOwner}>Mark Henry</Text>
+          <Text style={styles.cardOwner}>{cardInfo.owner}</Text>
           <Text style={styles.cardNumber}>
             5647{'\t\t'}3411{'\t\t'}2020{'\t\t'}2413{' '}
           </Text>
           <View style={styles.endRow}>
-            <Text style={styles.expiredText}>{CONTENT.Thru} 12/20 </Text>
-            <Text style={styles.CVVText}>{CONTENT.CVV} 456</Text>
+            <Text style={styles.expiredText}>{CONTENT.Thru} {cardInfo.expireDate}</Text>
+            <Text style={styles.CVVText}>{CONTENT.CVV} {cardInfo.cvvNumber}</Text>
           </View>
           <Image  style={styles.visaLogo} source={assets.visaLogo} />
         </View>

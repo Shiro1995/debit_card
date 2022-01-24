@@ -1,10 +1,10 @@
 import {handleActions} from 'redux-actions';
-import { getCardInforRequest, getCardInforSuccess } from '../../actions';
+import {getCardInforRequest, getCardInforSuccess, onChangeLimitMoney} from '../../actions';
 
 export const initialState = {
   isProcessing: false,
-  isShowPopup: false,
-  error: undefined,
+  limitMoney: undefined,
+  cardInfo: {},
 };
 
 export default handleActions(
@@ -13,10 +13,15 @@ export default handleActions(
       ...state,
       isProcessing: true,
     }),
-    [getCardInforSuccess]: state => ({
-        ...state,
-        isProcessing: false,
-      }),
+    [getCardInforSuccess]: (state, {payload: {cardInfo}}) => ({
+      ...state,
+      isProcessing: false,
+      cardInfo: cardInfo,
+    }),
+    [onChangeLimitMoney]: (state, {payload: {limitMoney}}) => ({
+      ...state,
+      limitMoney: limitMoney,
+    }),
   },
   initialState,
 );

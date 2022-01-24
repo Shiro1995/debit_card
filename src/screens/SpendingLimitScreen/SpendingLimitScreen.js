@@ -1,11 +1,28 @@
 import React from 'react';
-import {Image, SafeAreaView, Text, TouchableOpacity, View} from 'react-native';
+import {
+  Alert,
+  Image,
+  SafeAreaView,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
+import {formatNumber} from '../../common/constant';
 import {CONTENT} from '../../common/constant/string';
-import {assets} from '../../common/theme';
+import {assets, colors} from '../../common/theme';
 import TopBar from '../../component/TopBar';
 import styles from './styles';
 
-const SpendingLimitScreen = ({goBack}) => {
+const SpendingLimitScreen = ({
+  goBack,
+  listSelect,
+  moneySelected,
+  changeLimitMoney,
+  setMoneySelected,
+}) => {
+  const backgroundEnable = moneySelected && {
+    backgroundColor: colors.greenAccent,
+  };
   return (
     <SafeAreaView style={styles.safeArea}>
       <View style={styles.container}>
@@ -14,30 +31,38 @@ const SpendingLimitScreen = ({goBack}) => {
           <Text style={styles.title}>{CONTENT.SpendingLimit}</Text>
         </View>
         <View style={styles.contentView}>
-          <View style={styles.content} >
+          <View style={styles.content}>
             <View style={styles.weeklyRow}>
               <Image source={assets.gauge} />
               <Text style={styles.titleWeekly}>{CONTENT.SetAWeekly}</Text>
             </View>
             <View style={styles.rowCurrency}>
               <Text style={styles.unit}>{CONTENT.S$}</Text>
-              <Text style={styles.currency}>5,000</Text>
+              <Text style={styles.currency}>
+                {!!moneySelected && formatNumber(moneySelected)}
+              </Text>
             </View>
             <Text style={styles.description}>{CONTENT.HereWeeklyMeans} </Text>
             <View style={styles.chosenRow}>
-              <TouchableOpacity style={styles.btnOption}>
-                <Text style={styles.value}>{CONTENT.S$} 5,000 </Text>
-              </TouchableOpacity>
-              <TouchableOpacity style={styles.btnOption}>
-                <Text style={styles.value}>{CONTENT.S$} 10,000 </Text>
-              </TouchableOpacity>
-              <TouchableOpacity style={styles.btnOption}>
-                <Text style={styles.value}>{CONTENT.S$} 20,000 </Text>
-              </TouchableOpacity>
+              {listSelect.map(item => (
+                <TouchableOpacity
+                  key={item}
+                  style={styles.btnOption}
+                  onPress={() => setMoneySelected(item)}>
+                  <Text style={styles.value}>
+                    {CONTENT.S$} {formatNumber(item)}
+                  </Text>
+                </TouchableOpacity>
+              ))}
             </View>
           </View>
-          <TouchableOpacity style={styles.btnSave} >
-            <Text style={styles.textSave} >{CONTENT.Save} </Text>
+          <TouchableOpacity
+            style={[styles.btnSave, backgroundEnable]}
+            disabled={!moneySelected}
+            onPress={() => {
+              changeLimitMoney(moneySelected);
+            }}>
+            <Text style={styles.textSave}>{CONTENT.Save} </Text>
           </TouchableOpacity>
         </View>
       </View>
