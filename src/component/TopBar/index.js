@@ -1,7 +1,7 @@
 import React from 'react';
 import {Image, TouchableOpacity, View} from 'react-native';
-import { assets } from '../../common/theme';
 
+import { assets } from '../../common/theme';
 import styles from './styles';
 
 const TopBar = ({onPress}) => {

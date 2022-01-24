@@ -1,12 +1,10 @@
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
-import {defaultOptions, hideHeaderOptions} from './navigationOptions';
-import * as SCREEN_NAME from './screenName';
 import TabView from '../screens/TabView';
-
+import * as SCREEN_NAME from './screenName';
+import { hideHeaderOptions} from './navigationOptions';
 import DebitCardScreen from '../screens/DebitCardScreen';
-import EmptyScreen from '../screens/EmptyScreen/EmptyScreen';
 import SpendingLimitScreen from '../screens/SpendingLimitScreen/';
 
 const Stack = createNativeStackNavigator();

@@ -1,12 +1,6 @@
 import React from 'react';
-import {
-  Alert,
-  Image,
-  SafeAreaView,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import {Image, SafeAreaView, Text, TouchableOpacity, View} from 'react-native';
+
 import {formatNumber} from '../../common/constant';
 import {CONTENT} from '../../common/constant/string';
 import {assets, colors} from '../../common/theme';

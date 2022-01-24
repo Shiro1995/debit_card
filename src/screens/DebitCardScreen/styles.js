@@ -1,6 +1,6 @@
 import {Platform, StatusBar, StyleSheet} from 'react-native';
-import {colors, fonts} from '../../common/theme';
 
+import {colors, fonts} from '../../common/theme';
 
 const marginTop = Platform.OS === 'android' ? StatusBar.currentHeight : 0;
 
@@ -149,7 +149,7 @@ const styles = StyleSheet.create({
   },
   itemDescription: {
     fontFamily: fonts.avenirNextRegular,
-  marginRight: 20,
+    marginRight: 20,
   },
   switch: {
     flexShrink: 1,
@@ -162,7 +162,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: colors.background,
-  }
+  },
 });
 
 export default styles;

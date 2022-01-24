@@ -1,4 +1,5 @@
 import {handleActions} from 'redux-actions';
+
 import {getCardInforRequest, getCardInforSuccess, onChangeLimitMoney} from '../../actions';
 
 export const initialState = {

@@ -1,4 +1,5 @@
 import {all, put, takeLatest} from 'redux-saga/effects';
+
 import {getCardInforRequest, getCardInforSuccess} from '../actions';
 
 export const onGetCardInfoSaga = function* () {

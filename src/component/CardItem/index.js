@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
-
 import {Image, Text, TouchableOpacity, View} from 'react-native';
+
 import {formatCardNumber} from '../../common/constant';
 import {CONTENT} from '../../common/constant/string';
 import {assets} from '../../common/theme';
@@ -38,7 +38,7 @@ const CardItem = ({cardInfo}) => {
         <View style={styles.cardContent}>
           <Image style={styles.aspireLogo} source={assets.aspireLogoWithText} />
           <Text style={styles.cardOwner}>{cardInfo.owner}</Text>
-          <Text style={styles.cardNumber}> {cardNumber}</Text>
+          <Text style={styles.cardNumber}>{cardNumber}</Text>
           <View style={styles.endRow}>
             <Text style={styles.expiredText}>
               {CONTENT.Thru} {cardInfo.expireDate}

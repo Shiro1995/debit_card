@@ -1,10 +1,10 @@
 import React from 'react';
+import {Image, View} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {Image, Text, View} from 'react-native';
+import Pressable from 'react-native/Libraries/Components/Pressable/Pressable';
 
 import {assets, colors} from '../../common/theme';
 import {MAIN_TABS, TAB_NAME} from '../../common/constant';
-import Pressable from 'react-native/Libraries/Components/Pressable/Pressable';
 import styles from './styles';
 
 const Tab = createBottomTabNavigator();

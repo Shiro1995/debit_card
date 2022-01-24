@@ -1,5 +1,6 @@
 import {testSaga} from 'redux-saga-test-plan';
 import {takeLatest} from 'redux-saga/effects';
+
 import {getCardInforRequest, getCardInforSuccess} from '../actions';
 import {cardSaga, onGetCardInfoSaga} from './card';
 

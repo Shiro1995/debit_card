@@ -1,7 +1,6 @@
 import React from 'react';
 import {
   ActivityIndicator,
-  Button,
   Image,
   SafeAreaView,
   ScrollView,
@@ -10,12 +9,12 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
+
 import {
   formatNumber,
   heightSpendingLimit,
   MENU_LIST,
 } from '../../common/constant';
-
 import {CONTENT} from '../../common/constant/string';
 import {assets, colors} from '../../common/theme';
 import CardItem from '../../component/CardItem';

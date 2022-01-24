@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {onChangeLimitMoney} from '../../actions';
 
+import {onChangeLimitMoney} from '../../actions';
 import SpendingLimitScreen from './SpendingLimitScreen';
 
 const SpendingLimit = ({navigation, route}) => {
