@@ -11,7 +11,7 @@ export function makeServer({environment = 'development'} = {}) {
             cvvNumber: '456',
             expireDate: '12/20',
             balance_amount: 3000,
-            amountSpent: 345,
+            amountSpent: 4567,
           },
         };
       });

@@ -15,10 +15,16 @@ const DebitCard = ({navigation}) => {
 
   const onNavigate = useCallback(onSwitch => {
     if (!onSwitch) {
-      navigation.navigate(SPENDING_LIMIT_SCREEN);
+      navigation.navigate(SPENDING_LIMIT_SCREEN, { onBack: onBack});
     }
     setIsLimit(!onSwitch);
   }, []);
+
+  const onBack = item => {
+    if (!item) {
+      setIsLimit(false);
+    }
+  }
 
   useEffect(() => {
     dispatch(getCardInforRequest());

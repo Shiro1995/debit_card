@@ -1,4 +1,4 @@
-import {Platform, StatusBar} from 'react-native';
+import {Dimensions, Platform, StatusBar} from 'react-native';
 import {
   defaultOptions,
   hideHeaderOptions,
@@ -89,3 +89,25 @@ export const formatNumber = amount => {
   const stringNum = String(number);
   return stringNum.slice(0, stringNum.length - 2);
 };
+
+export const formatCardNumber = value => {
+  if (!value) return;
+  var v = value.replace(/\s+/g, '').replace(/[^0-9]/gi, '');
+  var matches = v.match(/\d{4,16}/g);
+  var match = (matches && matches[0]) || '';
+  var parts = [];
+
+  for (i = 0, len = match.length; i < len; i += 4) {
+    parts.push(match.substring(i, i + 4));
+  }
+
+  if (parts.length) {
+    return parts.join(' \t\t');
+  } else {
+    return value;
+  }
+};
+
+export const heightSpendingLimit = value => {
+  return Number(value)*(Dimensions.get('window').width - 40);
+}

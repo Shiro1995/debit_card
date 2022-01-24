@@ -1,5 +1,4 @@
 import {Platform, StatusBar, StyleSheet} from 'react-native';
-import {Dimensions} from 'react-native';
 import {colors, fonts} from '../../common/theme';
 
 
@@ -118,7 +117,6 @@ const styles = StyleSheet.create({
   },
   progress: {
     height: 15,
-    width: 100,
     borderTopLeftRadius: 30,
     borderBottomLeftRadius: 30,
     borderRightWidth: 6,

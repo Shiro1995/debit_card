@@ -9,15 +9,28 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import {formatNumber, MENU_LIST} from '../../common/constant';
+import {
+  formatNumber,
+  heightSpendingLimit,
+  MENU_LIST,
+} from '../../common/constant';
 
 import {CONTENT} from '../../common/constant/string';
 import {assets, colors} from '../../common/theme';
 import CardItem from '../../component/CardItem';
 import styles from './styles';
 
-const DebitCardScreen = ({onNavigate, isLimit, setIsLimit, limitMoney, cardInfo}) => {
+const DebitCardScreen = ({
+  onNavigate,
+  isLimit,
+  setIsLimit,
+  limitMoney,
+  cardInfo,
+}) => {
   const marginTopList = {marginTop: isLimit ? 0 : -30};
+  const widthProgress = {
+    width: heightSpendingLimit(cardInfo.amountSpent / limitMoney),
+  };
 
   const MenuItem = ({onSwitch, item}) => {
     const DescriptionText =
@@ -66,7 +79,9 @@ const DebitCardScreen = ({onNavigate, isLimit, setIsLimit, limitMoney, cardInfo}
           </Text>
           <View style={styles.rowCurrency}>
             <Text style={styles.unit}>{CONTENT.S$}</Text>
-            <Text style={styles.currency}>{cardInfo.balance_amount && formatNumber(cardInfo.balance_amount)}</Text>
+            <Text style={styles.currency}>
+              {cardInfo.balance_amount && formatNumber(cardInfo.balance_amount)}
+            </Text>
           </View>
         </View>
         <SafeAreaView style={styles.mainContent}>
@@ -79,7 +94,7 @@ const DebitCardScreen = ({onNavigate, isLimit, setIsLimit, limitMoney, cardInfo}
               </View>
               <View style={styles.contentView}>
                 <View style={styles.listView}>
-                  {isLimit && (
+                  {isLimit && limitMoney && (
                     <View style={styles.cardLimitContainer}>
                       <View style={styles.limitTopRow}>
                         <Text style={styles.limitTitle}>
@@ -87,16 +102,17 @@ const DebitCardScreen = ({onNavigate, isLimit, setIsLimit, limitMoney, cardInfo}
                         </Text>
                         <View style={styles.rightRow}>
                           <Text style={styles.currentMoney}>
-                            {CONTENT.$}{cardInfo.amountSpent}
+                            {CONTENT.$}
+                            {cardInfo.amountSpent}
                           </Text>
                           <Text style={styles.limitMoney}>
                             {'\t'}|{'\t'}
-                            {!!limitMoney && limitMoney}
+                            {limitMoney}
                           </Text>
                         </View>
                       </View>
                       <View style={styles.progressBar}>
-                        <View style={styles.progress}></View>
+                        <View style={[styles.progress, widthProgress]}></View>
                       </View>
                     </View>
                   )}

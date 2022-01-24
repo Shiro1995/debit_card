@@ -4,14 +4,16 @@ import {onChangeLimitMoney} from '../../actions';
 
 import SpendingLimitScreen from './SpendingLimitScreen';
 
-const SpendingLimit = ({navigation}) => {
+const SpendingLimit = ({navigation, route}) => {
   const dispatch = useDispatch();
+  const {onBack} = route.params || {};
   const listSelect = [5000, 10000, 20000];
   const [moneySelected, setMoneySelected] = useState();
   const limitMoney = useSelector(state => state.cardState.limitMoney);
 
   const goBack = () => {
     navigation.goBack();
+    onBack(moneySelected);
   };
 
   useEffect(() => {
