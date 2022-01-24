@@ -7,7 +7,7 @@ import styles from './styles';
 const TopBar = ({onPress}) => {
   return (
     <View style={styles.container}>
-      <TouchableOpacity onPress={onPress}>
+      <TouchableOpacity style={styles.backBtn} onPress={onPress}>
         <Image source={assets.backArrow} style={styles.backArrow} />
       </TouchableOpacity>
       <Image source={assets.aspireLogoGreen} />

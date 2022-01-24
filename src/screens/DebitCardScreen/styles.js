@@ -149,7 +149,7 @@ const styles = StyleSheet.create({
   },
   itemDescription: {
     fontFamily: fonts.avenirNextRegular,
-    marginRight: 20,
+  marginRight: 20,
   },
   switch: {
     flexShrink: 1,

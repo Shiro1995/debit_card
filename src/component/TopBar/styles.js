@@ -1,3 +1,5 @@
+import { colors } from '../../common/theme';
+
 const {StyleSheet} = require('react-native');
 
 const styles = StyleSheet.create({
@@ -7,8 +9,12 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingVertical: 16,
   },
+  backBtn: {
+    padding: 5,
+    // backgroundColor: colors.white,
+  },
   backArrow: {
-    height: 16,
+    height: 18,
     width: 14,
   },
 });
