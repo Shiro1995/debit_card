@@ -22,7 +22,7 @@ const DebitCard = ({navigation}) => {
 
   useEffect(() => {
     dispatch(getCardInforRequest());
-  }, [cardInfo]);
+  }, []);
 
   return (
     <DebitCardScreen
