@@ -2,7 +2,7 @@ import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {Image, Text, View} from 'react-native';
 
-import {assets} from '../../common/theme';
+import {assets, colors} from '../../common/theme';
 import {MAIN_TABS, TAB_NAME} from '../../common/constant';
 import Pressable from 'react-native/Libraries/Components/Pressable/Pressable';
 import styles from './styles';
@@ -38,8 +38,19 @@ const tabScreenOptions = ({route}) => ({
     paddingBottom: 8,
     paddingTop: 9,
     height: 56,
+    shadowRadius: 2,
+    shadowOffset: {
+      width: 0,
+      height: -3,
+    },
+    shadowColor: colors.black,
+    shadowOpacity: 1,
+    elevation: 4,
   },
-  tabBarLabelStyle: route.name === TAB_NAME.card.name ? styles.titleSelectedTab : styles.titleTab,
+  tabBarLabelStyle:
+    route.name === TAB_NAME.card.name
+      ? styles.titleSelectedTab
+      : styles.titleTab,
   tabBarButton: props => <Pressable {...props} onPress={() => {}} />,
 });
 

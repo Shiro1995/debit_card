@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  ActivityIndicator,
   Button,
   Image,
   SafeAreaView,
@@ -26,7 +27,14 @@ const DebitCardScreen = ({
   setIsLimit,
   limitMoney,
   cardInfo,
+  isProcessing,
 }) => {
+  if (isProcessing)
+    return (
+      <View style={styles.loadingContainer}>
+        <ActivityIndicator style={styles.loading} />
+      </View>
+    );
   const marginTopList = {marginTop: isLimit ? 0 : -30};
   const widthProgress = {
     width: heightSpendingLimit(cardInfo.amountSpent / limitMoney),

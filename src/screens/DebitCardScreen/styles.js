@@ -154,6 +154,15 @@ const styles = StyleSheet.create({
   switch: {
     flexShrink: 1,
   },
+  loadingContainer: {
+    flex: 1,
+  },
+  loading: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: colors.background,
+  }
 });
 
 export default styles;

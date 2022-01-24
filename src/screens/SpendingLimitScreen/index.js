@@ -10,10 +10,9 @@ const SpendingLimit = ({navigation, route}) => {
   const listSelect = [5000, 10000, 20000];
   const [moneySelected, setMoneySelected] = useState();
   const limitMoney = useSelector(state => state.cardState.limitMoney);
-
   const goBack = () => {
     navigation.goBack();
-    onBack(moneySelected);
+    onBack();
   };
 
   useEffect(() => {

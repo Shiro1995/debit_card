@@ -12,6 +12,7 @@ const DebitCard = ({navigation}) => {
   const [isLimit, setIsLimit] = useState(false);
   const limitMoney = useSelector(state => state.cardState.limitMoney);
   const cardInfo = useSelector(state =>  state.cardState.cardInfo);
+  const isProcessing = useSelector(state => state.cardState.isProcessing);
 
   const onNavigate = useCallback(onSwitch => {
     if (!onSwitch) {
@@ -20,8 +21,8 @@ const DebitCard = ({navigation}) => {
     setIsLimit(!onSwitch);
   }, []);
 
-  const onBack = item => {
-    if (!item) {
+  const onBack = () => {
+    if (!limitMoney) {
       setIsLimit(false);
     }
   }
@@ -37,6 +38,7 @@ const DebitCard = ({navigation}) => {
       setIsLimit={setIsLimit}
       limitMoney={limitMoney}
       cardInfo={cardInfo}
+      isProcessing={isProcessing}
     />
   );
 };
